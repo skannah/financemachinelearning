@@ -1,0 +1,18 @@
+import numpy as np
+from sklearn.neighbors import KNeighborsRegressor
+
+# Example features (replace with actual data)
+X = np.array([[distance_to_park, num_restaurants, sidewalk_density, ...]])
+# Example walking scores (replace with actual labels)
+y = np.array([walking_score])
+
+# Initialize KNN regressor
+knn_regressor = KNeighborsRegressor(n_neighbors=5)
+
+# Fit the model
+knn_regressor.fit(X, y)
+
+# Predict walking score for a new neighborhood
+new_features = np.array([[new_distance_to_park, new_num_restaurants, new_sidewalk_density, ...]])
+predicted_score = knn_regressor.predict(new_features)
+print(f"Predicted walking score: {predicted_score[0]}")
