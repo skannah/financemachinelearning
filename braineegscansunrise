@@ -1,0 +1,18 @@
+import csv
+
+# Dummy EEG data (replace with your actual data)
+eeg_data = [
+    ['Timestamp', 'EEG1', 'EEG2', 'PatientID'],
+    ['2024-03-29 08:00:00', 0.5, 0.8, 'P001'],
+    # Add more rows here...
+]
+
+# Path to save the CSV file
+csv_file_path = 'eeg_data.csv'
+
+# Write EEG data to the CSV file
+with open(csv_file_path, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(eeg_data)
+
+print(f"CSV file '{csv_file_path}' created successfully.")
