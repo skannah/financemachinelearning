@@ -1,0 +1,12 @@
+from sklearn.neighbors import KNeighborsClassifier
+
+# Create and train the KNN model
+knn_model = KNeighborsClassifier(n_neighbors=3)
+knn_model.fit(X_train, y_train)
+
+# Make predictions
+knn_y_pred = knn_model.predict(X_test)
+
+# Evaluate accuracy
+knn_accuracy = accuracy_score(y_test, knn_y_pred)
+print(f"KNN Accuracy: {knn_accuracy:.2f}")
