@@ -1,0 +1,18 @@
+import requests
+
+# Example 1: Passing API key as a query parameter
+url = 'https://api.example.com/data'
+params = {'api_key': 'YOUR_API_KEY'}
+response = requests.get(url, params=params)
+
+# Example 2: Passing API key in headers
+url = 'https://api.example.com/data'
+headers = {'Authorization': 'Bearer YOUR_API_KEY'}
+response = requests.get(url, headers=headers)
+
+# Handle the response (e.g., parse JSON data)
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+else:
+    print(f"Error: {response.status_code}")
