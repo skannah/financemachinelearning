@@ -1,0 +1,31 @@
+import requests
+
+def fetch_aaa_stocks():
+    url = "https://www.thestreet.com/investing/stocks/here-are-the-21-a-rated-s-p-500-stocks-13325533"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        # Parse the HTML content to extract stock information
+        # You may need to use a proper HTML parsing library (e.g., BeautifulSoup)
+        # For simplicity, let's assume we have already extracted the relevant data
+        aaa_stocks = ["AAPL", "MSFT", "GOOGL", "NVDA", "AMZN", "META", ...]
+
+        return aaa_stocks
+    else:
+        print(f"Error fetching data: {response.status_code}")
+        return []
+
+def upload_stocks_to_server(stocks):
+    # Implement your upload logic here
+    # You can use an API endpoint or any other method to upload the data
+    # For demonstration, let's print the stocks
+    print("AAA-rated S&P 500 stocks:")
+    for stock in stocks:
+        print(stock)
+
+if __name__ == "__main__":
+    aaa_stocks_list = fetch_aaa_stocks()
+    if aaa_stocks_list:
+        upload_stocks_to_server(aaa_stocks_list)
+    else:
+        print("No data retrieved. Check the source or try again later.")
