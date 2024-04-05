@@ -1,0 +1,38 @@
+import yfinance as yf
+import pandas as pd
+
+# Define the universe of stocks (e.g., large-cap tech stocks)
+stock_symbols = ["AAPL", "MSFT", "GOOGL", "AMZN", "FB", "TSLA", ...]
+
+# Fetch historical stock data
+def get_stock_data(symbols):
+    data = yf.download(symbols, start="2020-01-01", end="2021-12-31")
+    return data["Adj Close"]
+
+# Calculate returns
+def calculate_returns(data):
+    return data.pct_change()
+
+# Rank stocks based on some criteria (e.g., momentum, valuation)
+def rank_stocks(returns):
+    # Your ranking logic here
+    # Example: Rank by 6-month momentum
+    return returns.iloc[-1] / returns.iloc[-120]
+
+# Construct long and short portfolios
+def construct_portfolio(rankings):
+    long_stocks = rankings.nlargest(10).index
+    short_stocks = rankings.nsmallest(10).index
+    return long_stocks, short_stocks
+
+if __name__ == "__main__":
+    stock_data = get_stock_data(stock_symbols)
+    stock_returns = calculate_returns(stock_data)
+    stock_rankings = rank_stocks(stock_returns)
+
+    long_positions, short_positions = construct_portfolio(stock_rankings)
+
+    print("Long Positions:")
+    print(long_positions)
+    print("\nShort Positions:")
+    print(short_positions)
