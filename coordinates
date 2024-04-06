@@ -1,0 +1,14 @@
+import spacy
+
+# Load the English language model
+nlp = spacy.load("en_core_web_sm")
+
+# Example text message
+message = "Enemy troops spotted near coordinates 35.123, -120.456."
+
+# Process the message
+doc = nlp(message)
+
+# Extract named entities
+for ent in doc.ents:
+    print(f"Entity: {ent.text}, Label: {ent.label_}")
