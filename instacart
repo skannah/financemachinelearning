@@ -1,0 +1,19 @@
+# Hypothetical investment in Instacart
+initial_investment = 1000  # Initial investment amount (in dollars)
+instacart_stock_price = 200  # Hypothetical stock price (in dollars)
+
+# Calculate the number of shares purchased
+num_shares = initial_investment / instacart_stock_price
+
+# Print details of the investment
+print(f"Initial Investment: ${initial_investment:.2f}")
+print(f"Instacart Stock Price: ${instacart_stock_price:.2f}")
+print(f"Number of Shares Purchased: {num_shares:.2f}")
+
+# Calculate the current value of the investment (assuming a change in stock price)
+current_stock_price = 220  # Updated hypothetical stock price (in dollars)
+current_value = num_shares * current_stock_price
+
+# Print the current value
+print(f"Current Stock Price: ${current_stock_price:.2f}")
+print(f"Current Value of Investment: ${current_value:.2f}")
